@@ -19,7 +19,12 @@ app.use(bodyParser.json({limit: '50mb'}));
     
 
 app.use(express.static(__dirname + '/public'));
-
+app.use('/node_modules/dist', express.static(__dirname + '/node_modules/bootstrap/dist'))
+    .use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
+    .use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'))
+    .use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts'));
+app.use('/libs', express.static(__dirname + '/public/libs'))
+    .use('/css', express.static(__dirname + '/public/libs/css'));
 // Parse 
 var mqtt_url = url.parse(process.env.CLOUDMQTT_URL || 'mqtt://iljmaxro:5UFojSFjKFnB@m13.cloudmqtt.com:13024');
 var auth = (mqtt_url.auth || ':').split(':');
@@ -107,6 +112,27 @@ app.get('/garden', function(request, response) {
                         }); 
   });
 });
+
+app.get('/home', function(request, response) {
+    fs.readFile(fileinput, function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        console.log("Asynchronous read: " + data.toString());
+        var values = data.toString().split(";");
+        var datainput = {};
+        if(values.length >= 4){
+          datainput.relaynumber = values[1];
+          datainput.ontime = values[2];
+          datainput.typeofftime = values[3];
+          datainput.offtime = values[4];
+        }
+        
+        response.render('pages/johnview', {
+                              setting: datainput
+                          }); 
+    });
+  });
 
 app.get('/test', function(request, response) {
   response.send({message:'hello world'});
