@@ -1,0 +1,320 @@
+<html>
+    <head>
+
+        <style type="text/css">
+            .light {
+                background: url('light.jpg');
+                width: 113px;
+                height: 165px;
+                display:block;
+            }
+
+            .light.on {
+                background-position: 113px 0px; 
+            }
+
+            .light.off{
+                 background-position: 0px 0px; 
+            }
+            .connection {
+                /* background: url('connection.png');
+                width: 207px;
+                height: 165px;
+                display:block; */
+                width: 85px;
+                height: 85px;
+                display:block; 
+            }
+
+            .connection.off {
+                background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAABVCAYAAAA49ahaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQdSURBVHhe7dzNThNRFAfwKgkYn8CVKx8A9Q3cuDalJqJxycoWJfGjbWKtxIUBbf2IMWwwTFEszChPoEiiG1duXMFjuCKM90zvhaE9nY/Omfb2zvkn/6Qt9OP+KNOZudPJcTgcDofD4XA4HA6HQ5cXa9sX5EUORZotu960nH+N9a2r8iZOknigLcf1yrDJcwKUYXO5Wrs92bCc9YZl/w5r07IX5d2OgoKqZhEWQMXgt3swAipwn8u7B4OqCtjMfHi12+2JRsveQiFCCrCRQL3adfmUZscDtZxPOAJlMwLquu4psWxcxREoayjoTLF6s1AoTMirCnQFR6CsqaClypKomy+WNwAWQBst5zWOQFnDQVUB9uWavYwjUDYjoKq3Hzz9KWAPcAya+le3jInAQ0FVGTZmrt2tXMqXKgcYpr/DgMW2vMY28GmvBaxl/5EvyYxoAWsaKmSmVJ4dKayJqJCRwpqKCtl4d+Xr9fkyiukvOaypqIc7U8/cnSl3tzXtDh3WRFQFqjp0WNNQu0FHAmsSaj9Q6OH3yf2Fx3PFoXx4mYIaBurunjkPvxd1reDW/fqvwWHtj96L0jGF0qPL8mJgQkD3FKhKyrDbMPcln0qviEEteQMXW0jyJjRxQVVSgt3UGlQNqjPw8qz80YkItBKGCQ0CVaGEhWlumPuSD61XxCB6dt/1g3W/nT0n3ql/BwFVIYG17NWxAlWNChsHVCV/p3ojAex7mKqRD6VXAAwbiL9hsIOAqixU54pR1mP9sI2W/UZbUAhMzsFcEjYQf4NgBwWF+4k/yH7UDQSAbVhbS1qDqgCseNGfuwfR3X6wg0SBqsVHVNiZYrntn/7WNt40sngHwBYNOhBfKWAl6J4CNQ4WQJuW8xaWVbDMShu2H6gq7DbsPD7+3Mel+Y8hT61WOy1WS04cOZImbBgobFDA74WtFeSLFT1nTuXRdx/8oGnCRgVV6QerN6jYEsFAVSlh44KqdMNqCyoPuN3sRsRKATsoqIqC1R001hHMSWH7bdJGAVXJFx9elBf1i/iU38DgwhoHFt5Z8umOgsFGBdU+sGccQ4tSSlhjQCFJUKEksD8m78mrZiQpKjQprHGhQIUyrC9UqFCAhb1GGKa/xsNSokIZVoQaFZp52DRQoZmGTQsVmllYgbqIgVA1DmxhvjItX9b4p/OlWRyFolFgtd05kiSjhDUSFCJQn2AYlBWwyzCXlAlQ+MohhkBay3kFc1/eLK2EZdAktewV/7x8B7YaeLDb2GZIoKtjcaADRYYBqvXRd9SJDmrXE6wVbGYGFM52A2e9QRC6evx9+fiw9hdtD7hNK3B+pmDY3hMQwJaXwEXPEeWveNxW5kBV+sMaekaHYaUXlkFJcgzLoKTh84xyOBwOh8PhcDgcDocyudx/hfFgwCLl27AAAAAASUVORK5CYII=');
+                /* background-position: 207px 0px;  */
+            }
+
+            .connection.on{
+                background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAABVCAYAAAA49ahaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO5SURBVHhe7Zw/b9NAGIdb8VcIsfEN2GFFYkRiYEJppyLBBkJ1EARR4oG00IUG6jBQFKlVBXaGRjlHQOmGKvEVGEAggZjp3LHhfd2z6lyurpO7JHfJ+0g/xbF89t2j2HfyOZ4gCIIgCIIgCIIgCH28ev/hAl8kdFAJ2ELFD3e9WuMaX0WoEAkNwlYUEqtOm1ASq45UaBwS2z2pQuOAWOq8MpJJaBS2wIuMNuvr66eXa42rR8WrhZd5kTZIqECpXj/p+eFnuQRZmo950QgSKlCtVk94QRjKJaRlXywJFajX68e8gG3IJWRIrcmk6zsyXkJ9uYTsgX38la0/yOgKneSfEa1WaxIauyaX0H0OFzuiQqfybjmXd1dgMRIbCfXZilxC7+kUO6JCc477EqS2MLFYaHylvfH6ciB2DITGuTO/1PR8tifK0BnYf4NXYbSQCY1TKL/52m+x4jjWekBcWRQphsR2SW7WzYO4PVGkmIGIrYVXeLXsZ8opOiBu6GKXfXadV8k+QFDpxuzcRf41wgSx1kqNO6WcU/xnmlgrpYq9vGlirZN62LDJJLFWSU0bh2JMEWuN1BmndG7Kcb/JhCRjglirfqkg57wNYq27pqLYmUfz32VCkhmmWKuk7t8PDT1o8M6t4uJPmZBkUOz0ffcSLx4xALGbr7e2TvHDmY14P9RMsayJk4n8MGYTTYH4bFVshElivYBt4GQi373ZHDWnpCQ2785ClMVi/bCefLdmU9rePo6/AFlDkhmmWFi3ao9QuDbBNTTjVPCQxMI1Hq/1fDdmg70nVP5TUlqWDFisZ41QxPPDh6KwrBmE2Lulcgib2yMUqfjhE5mwrBmEWBg9vIXN7RGrKhVDYgV0SMX0W2wuX1zim5uPLqmYfom1SiiiUyoGxd6eW/wlk5NMVrHWCUV0S8VkFQvZSRNrpVCkH1IxqmJzjvuCf7WPfknFqIi1mkrQKMiE6MpYiq1WP56Bxn8RZehMZrFO8Smvlv2YINbaTikNFOsF7LdMiK6g2JuF0o8OoTZ3SmlAg+dlIjTHg1O8bZaWhKokcT80FktClcLWxPuh0/dKZ/niaDGgU/6dNVMgquC/OyQCOuOzP9L1GYJzXiRUjM+e9zrcwv+iWjONrEo3QnmRXsaxm9Y86KBKL0Jj9sU2CnBKz6UFjvHAmkdxVFERSkggoZrJKhQ6lme8CJEGvu2m4oe7MonJkNAuwfczpYkloT1ymFgSqogoloRqIhZLQjVDr2ojCIIgCIIgCIIgdDIx8R9K+BNcQ0anxgAAAABJRU5ErkJggg==');
+                 /* background-position: 0px 0px;  */
+            }
+
+            .bedroom{
+                background: url('data:image/png;base64,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');
+                background-repeat: no-repeat;
+                width: 120px;
+                height: 120px;
+                display:block; 
+            }
+
+            .lightsStore{
+                background: url('data:image/png;base64,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');
+                background-repeat: no-repeat;
+                width: 120px;
+                height: 120px;
+                display:block; 
+            }
+            .homeAlarm{
+                background: url('data:image/png;base64,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');
+                background-repeat: no-repeat;
+                width: 120px;
+                height: 120px;
+                display:block; 
+            }
+            
+            .row-bordered:after {
+                content: "";
+                display: block;
+                border-bottom: 1px solid rgb(252, 16, 16);
+                margin: 0 15px;
+              }
+        </style>
+
+    <title>LOKESH - Control Page</title>
+        <% include ../partials/header.ejs %>
+    </head>
+    <body id="page-top">        
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+    <script type="text/javascript">
+
+        function light_on(){
+            $('.light').removeClass('off');
+            $('.light').addClass('on');
+        }
+        function lamp1_on(){
+            $('#lamp1.light').removeClass('off');
+            $('#lamp1.light').addClass('on');
+        }
+        function lamp2_on(){
+            $('#lamp2.light').removeClass('off');
+            $('#lamp2.light').addClass('on');
+        }
+        function lamp3_on(){
+            $('#lamp3.light').removeClass('off');
+            $('#lamp3.light').addClass('on');
+        }
+
+
+        function light_off(){
+            $('.light').removeClass('on');
+            $('.light').addClass('off');
+        }
+        function lamp1_off(){
+            $('#lamp1.light').removeClass('on');
+            $('#lamp1.light').addClass('off');
+        }
+        function lamp1_off(){
+            $('#lamp2.light').removeClass('on');
+            $('#lamp2.light').addClass('off');
+        }
+        function lamp3_off(){
+            $('#lamp3.light').removeClass('on');
+            $('#lamp3.light').addClass('off');
+        }
+
+        function connection_on(){
+            $('.connection').removeClass('off');
+            $('.connection').addClass('on');
+        }
+
+        function connection_off(){
+            $('.connection').removeClass('off');
+            $('.connection').addClass('off');
+        }
+       // var socket = io.connect('https://protected-everglades-87452.herokuapp.com/');
+       var socket = io.connect('http://localhost:5000/');
+        socket.on('connect', function () {
+            socket.on('mqtt', function (msg) {
+                console.log(msg);
+                if(msg.type == '9'){
+                    if(msg.type == '3' && msg.payload == '1'){
+                        light_on();
+                    }
+                    else{
+                        light_off();
+                    }
+
+                    connection_on();
+                }
+            });
+
+            socket.emit('subscribe',{topic:'/sensor/OTGW/returntemp'});
+        });
+
+        function changestatusrelay(pinno, value){
+             var url = '/on';
+            if(value == '1'){
+                url = '/off';
+            }
+            var data = {};
+            data.pinno = pinno;
+            data.value = value;
+		    postdata(url,data);
+        }
+        function checkstatus(){
+            var url = '/status';
+		    getdata(url,{});
+        }
+        function postdata(url, data){
+            console.log('URL'+url);
+              $.ajax({
+                type: 'POST',
+                dataType: "json",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                cache: false,
+                url: url,						
+                success: function(data) {
+                    console.log('success');
+                    console.log(JSON.stringify(data));
+                }
+            });
+        }
+        function getdata(url, data){
+              $.ajax({
+                type: 'GET',
+                dataType: "json",
+                data: data,
+                contentType: "application/json",
+                cache: false,
+                url: url,						
+                success: function(data) {
+                    console.log('success');
+                    console.log(JSON.stringify(data));
+                }
+            });
+        }
+        function checksubmitsetting(){
+            var ontime = $('#ontime').val();
+            var offtime = $('#offtime').val();
+            var typeofftime = $('#typeofftime').val();
+            var relaynumber = $('#relaynumber').val();
+            
+            if(!ontime || !offtime || !relaynumber){
+                alert('Please input all fields');
+            }
+            else{
+                $('#frmsubmit').submit();
+            }
+        }
+
+        $(document).ready(function () {
+            checkstatus();
+
+            var typeofftime = "<%=setting.typeofftime %>";
+            $('#typeofftime').val(typeofftime);
+        });
+    </script>   
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">CONNECT DEVICE</a>                    
+                    <a class="navbar-brand connection off" style="height: 80px;" href="#"></a>                    
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#page-top">Home</a></li>
+                        <li><a class="page-scroll" href="#features">Features</a></li>
+                        <li><a class="page-scroll" href="#team">Team</a></li>
+                        <li><a class="page-scroll" href="#testimonials">Testimonials</a></li>
+                        <li><a class="page-scroll" href="#pricing">Pricing</a></li>
+                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+    </div>
+    <div class="container"> <h2>&nbsp;</h2></div>
+    <div class="container"> <h2>&nbsp;</h2></div>
+    <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+            <li data-target="#inSlider" data-slide-to="1"></li>
+        </ol>
+        <section id="features" class="container services album text-muted">
+                <div class="row row-bordered">
+                    <div class="col-sm-3">
+                        <h2>LAMP-1</h2>           
+                        <div id="lamp1" class="light off"></div>
+                    </div>
+                    <div class="col-sm-5 ">
+                        <h2>&nbsp;</h2>
+                        <form class="bedroom center-block" action="/setting" id="frmsubmit" method="post" >
+                            <fieldset class="hidden">
+                               <label for="relaynumber">Relay Number *:</label>
+                               <input type="number" id="relaynumber" name="relaynumber" placeholder="4" value="<%=setting.relaynumber %>" />
+                               <br />
+                               <label for="ontime">On Time *:</label>
+                               <input type="number" id="ontime" name="ontime" placeholder="20" value="<%=setting.ontime %>" />
+                               <br />
+                               <label for="typeofftime">Type Off Time:</label>
+                               <select id="typeofftime" name="typeofftime">
+                                   <option value="0">Number?/day</option>
+                                   <option value="1">Minutes</option>
+                               </select>
+                               <br />
+                               <label for="offtime">Off Time *:</label>
+                               <input type="number" id="offtime" name="offtime" placeholder="8" value="<%=setting.offtime %>" />
+                               <br />
+                               <input type="button" onclick="checksubmitsetting()" value="Submit" />
+                            </fieldset>
+                         </form>
+                       </body>                      
+                    </div>
+                    <form class="col-sm-2 center-block" action="/on" method="post">
+                        <h2>&nbsp;</h2>
+                        <input type="button" style="width: 130px;  height: 130px;" class="btn btn-warning center-block rounded-circle" onclick="changestatusrelay('1','0')" value="ON" />                       
+                    </form>
+                    <form class="col-sm-2" action="/off" method="post">
+                        <h2>&nbsp;</h2>                        
+                        <input type="button" style="width: 130px;  height: 130px;" class="btn btn-danger center-block rounded-circle" onclick="changestatusrelay('1','1')" value="OFF" />
+                    </form>
+                </div>
+                <div class="row row-bordered">
+                        <div class="col-sm-3">
+                            <h2>LAMP-2</h2>           
+                            <div id="lamp2" class="light off"></div>
+                        </div>
+                        <div class="col-sm-5">
+                            <h2>&nbsp;</h2>
+                             <div class="homeAlarm center-block "></div>                  
+                        </div>
+                        <form class="col-sm-2" action="/on" method="post">
+                            <h2>&nbsp;</h2>
+                            <input type="button" style="width: 130px;  height: 130px;" class="btn btn-warning center-block rounded-circle" onclick="changestatusrelay('2','0')" value="ON" />                       
+                        </form>
+                        <form class="col-sm-2" action="/off" method="post">
+                            <h2>&nbsp;</h2>                        
+                            <input type="button" style="width: 130px;  height: 130px;" class="btn btn-danger center-block rounded-circle" onclick="changestatusrelay('2','1')" value="OFF" />
+                        </form>
+                    </div>
+                    <div class="row row-bordered">
+                            <div class="col-sm-3">
+                                <h2>LAMP-3</h2>           
+                                <div id="lamp3" class="light off"></div>
+                            </div>
+                            <div class="col-sm-5">
+                                <h2>&nbsp;</h2>
+                                <div class="lightsStore center-block "></div>                     
+                            </div>
+                            <form class="col-sm-2" action="/on" method="post">
+                                <h2>&nbsp;</h2>
+                                <input type="button" style="width: 130px;  height: 130px;" class="btn btn-warning center-block rounded-circle" onclick="changestatusrelay('3','0')" value="ON" />                       
+                            </form>
+                            <form class="col-sm-2" action="/off" method="post">
+                                <h2>&nbsp;</h2>                        
+                                <input type="button" style="width: 130px;  height: 130px;" class="btn btn-danger center-block rounded-circle" onclick="changestatusrelay('3','1')" value="OFF" />
+                            </form>
+                        </div>
+            </section>
+    </div>
+  
+</html>
+<script>
+  
+</script>
