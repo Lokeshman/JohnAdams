@@ -53,7 +53,7 @@ var express = require('express'),
             response.render('pages/index');
           });
 
-        app.use('/esp', require('./espdevice')(app));
+        app.use('/', require('./espdevice')(app));
 
         http.listen(app.get('port'), function() {
             console.log('Node app is running on port', app.get('port'));
