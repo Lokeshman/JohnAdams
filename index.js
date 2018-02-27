@@ -108,8 +108,8 @@ app.get('/garden', function(request, response) {
       //var str = "1;" + req.body.relaynumber + ";"  + req.body.ontime + ";"  + req.body.typeofftime + ";"  + req.body.offtime;
       //response.render('pages/garden', datainput);
       response.render('pages/garden', {
-                            setting: datainput
-                        }); 
+            setting: datainput
+        }); 
   });
 });
 
@@ -240,7 +240,7 @@ app.post('/input', function(req, res){
 // });
 app.post('/on', function(req, res){
     console.log(req.body);
-    var messageSend = req.body.pinno + ";" +req.body.value;
+    var messageSend = req.body.pinno + ";" + req.body.value;
     client.publish('esp8266_arduino_in', messageSend, function() {
         console.log("ON:Message is published from node.js");
         console.log(messageSend);
