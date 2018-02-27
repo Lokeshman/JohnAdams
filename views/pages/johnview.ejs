@@ -22,6 +22,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <!--header-top start here-->
@@ -64,39 +65,62 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li class="active">Dashboard</li>
                     </ol>
                 </div><!--/.row-->
-                                   
-                <div class="col-xs-6 col-md-3 col-sm-4">                     
-                    <div class="panel panel-default">
-                        <div class="panel-body easypiechart-panel">
-                            <h4 class="panel-blue">LIVING ROOM</h4>                           
-                            <div class="row no-padding canvas-wrapper">
-                                <div class="col-sm-5">
-                                    <em  id="lamp1" class="light off"></em>
-                                </div>                                
-                                <div class="col-sm-7  widget-right">
-                                    <div class="col-sm-7">
-                                        <em class="glyphicon  glyphicon-shopping-cart glyphicon-l"></em>
-                                    </div>
-                                    <div class="btn-group" id="status1" data-toggle="buttons">
-                                        <label class="btn btn-default btn-on btn-lg active">
-                                        <input type="radio" value="1" name="multifeatured_module[module_id][status1]" checked="checked">ON</label>
-                                        <label class="btn btn-default btn-off btn-lg">
-                                        <input type="radio" value="0" name="multifeatured_module[module_id][status1]">OFF</label>
-                                    </div>
-                                </div>                                
+                <div class="col-lg-3 col-xs-6">
+                    <div class="panel panel-white">
+                        <div class="panel-heading panel-blue"><span class="glyphicon glyphicon-check"></span>LIVING ROOM</div>
+                        <div class="panel-body">
+                            <div class="col-xs-6">
+                                <em  id="lamp1" class="light off"></em>
+                            </div>   
+                            <div class="col-xs-6">                                                                   
+                                <em class="glyphicon  glyphicon-shopping-cart glyphicon-l"></em>                                                                    
+                            </div>                                                            
+                            <div class="col-xs-12 action-buttons btn-group">
+                                <div class="btn-group" id="status1" data-toggle="buttons">
+                                    <label class="btn btn-default btn-off btn-lg active">
+                                    <input type="radio" value="0" name="multifeatured_module[module_id][status1]">OFF-LAMP</label>
+                                    <label class="btn btn-default btn-on btn-lg">
+                                    <input type="radio" value="1" name="multifeatured_module[module_id][status1]" checked="checked">&nbsp;ON-LAMP&nbsp;</label>                                            
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>   
+                        <div class="panel-footer">                                                  
+                        </div>
+                    </div>                                                  
+                </div><!-- ./col -->   
+                                
+                <div class="col-lg-3 col-xs-6">
+                    <div class="panel panel-white">
+                        <div class="panel-heading panel-blue"><span class="glyphicon glyphicon-check"></span>LIVING ROOM</div>
+                        <div class="panel-body">
+                            <div class="col-xs-6">
+                                <em  id="lamp1" class="light off"></em>
+                            </div>   
+                            <div class="col-xs-6">                                                                   
+                                <em class="glyphicon  glyphicon-shopping-cart glyphicon-l"></em>                                                                    
+                            </div>                                                            
+                            <div class="col-xs-12 action-buttons btn-group">
+                                <div class="btn-group" id="status1" data-toggle="buttons">
+                                    <label class="btn btn-default btn-off btn-lg active">
+                                    <input type="radio" value="0" name="multifeatured_module[module_id][status1]">OFF-LAMP</label>
+                                    <label class="btn btn-default btn-on btn-lg">
+                                    <input type="radio" value="1" name="multifeatured_module[module_id][status1]" checked="checked">&nbsp;ON-LAMP&nbsp;</label>                                            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">                                                  
+                        </div>
+                    </div>                                                  
+                </div><!-- ./col -->  
                 
                 
             </div><!--/.row-->            
         </div>
     </section>
    
-    <footer id="footer"><!--Footer-->
+    <footer id="footer" class="page-footer font-small blue pt-4 mt-4"><!--Footer-->
         <% include ../partials/footer.ejs %>
-    </div>    
+    </footer>    
 </body>
 </html>
 
