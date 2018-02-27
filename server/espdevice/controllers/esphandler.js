@@ -59,6 +59,7 @@ module.exports = function (app) {
     });
 
     return {
+
         ctrl00: function(request, response) {
             console.log(fileinput);  
                
@@ -79,8 +80,7 @@ module.exports = function (app) {
                 response.render('espdevice/pages/johnview', {
                     setting: datainput
                 }); 
-            });                         
-            
+            });               
         }
     }
 }

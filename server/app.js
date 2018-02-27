@@ -21,7 +21,7 @@ var express = require('express'),
     }));
 
     app.use(bodyParser.json({limit: '50mb'}));   
-       
+    
     module.exports = function () {
 
         app.set('views', path.join(__dirname, '/views'));              
@@ -30,16 +30,18 @@ var express = require('express'),
 
         app.use(express.static(path.join(__dirname, '../public')));
         
-        console.log(path.join(__dirname, '../views'));
-
-        app.use('/node_modules/dist', express.static(path.join(__dirname + '../node_modules/bootstrap/dist')))
-            .use('/css', express.static(path.join(__dirname + '../node_modules/bootstrap/dist/css')))
-            .use('/js', express.static(path.join(__dirname + '../node_modules/bootstrap/dist/js')))
-            .use('/fonts', express.static(path.join(__dirname + '../node_modules/bootstrap/dist/fonts')));
+        console.log(path.join(__dirname + '../node_modules/bootstrap/dist/css'));        
     
-        // app.use('/libs', express.static(__dirname + '../public/libs'))
-        //     .use('/css', express.static(__dirname + '../public/libs/css'))
-        //     .use('/js', express.static(__dirname + '../public/libs/css'));
+        //app.use(express.static(path.join(__dirname, '../node_modules')));
+
+        app.use('/libs', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')))
+            .use('/css', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css')))
+            .use('/js', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/js')))
+            .use('/fonts', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/fonts')));
+
+        app.use('/libs', express.static(path.join(__dirname, '../public/libs')))
+            .use('/css', express.static(path.join(__dirname, '../public/libs/css')))
+            .use('/js', express.static(path.join(__dirname, '../public/libs/js')));
 
         app.use(bodyParser.urlencoded({
             extended: true,
