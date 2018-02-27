@@ -49,7 +49,11 @@ var express = require('express'),
         }));
         app.use(bodyParser.json({limit: process.env.MAX_JSON_LIMIT}));
 
-        app.use('/', require('./espdevice')(app));
+        app.get('/', function(request, response) {
+            response.render('pages/index');
+          });
+
+        app.use('/esp', require('./espdevice')(app));
 
         http.listen(app.get('port'), function() {
             console.log('Node app is running on port', app.get('port'));
