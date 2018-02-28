@@ -32,30 +32,30 @@ module.exports = function (app) {
 
     client.on('connect', function() { // When connected
     
-    // subscribe to a topic
-    client.subscribe('esp8266_arduino_out', function() {
-        // when a message arrives, do something with it
-        client.on('message', function(topic, message, packet) {
-        var values = message.toString().split(";");
-        console.log(values);
-        if(values.length > 0 && values[0] <= '9'){
-            io.sockets.emit('mqtt', 
-            {   
-                'topic'     :   String(topic), 
-                'type'      :   String(values[0]),  
-                'payload'   :   String(values[1])
+        // subscribe to a topic
+        client.subscribe('esp8266_arduino_out', function() {
+            // when a message arrives, do something with it
+            client.on('message', function(topic, message, packet) {
+            var values = message.toString().split(";");
+            console.log(values);
+            if(values.length > 0 && values[0] <= '9'){
+                io.sockets.emit('mqtt', 
+                {   
+                    'topic'     :   String(topic), 
+                    'type'      :   String(values[0]),  
+                    'payload'   :   String(values[1])
+                });
+            }        
+            //io.emit('an event sent to all connected clients');
+            console.log("RECEIVED '" + message + "' ON '" + topic + "'");
             });
-        }        
-        //io.emit('an event sent to all connected clients');
-        console.log("RECEIVED '" + message + "' ON '" + topic + "'");
         });
-    });
     
-    // publish a message to a topic
-    // client.publish('esp8266_arduino_in', 'my message', function() {
-    //   console.log("Message is published from node.js");
-    //   //client.end(); // Close the connection when published
-    // });
+        // publish a message to a topic
+        // client.publish('esp8266_arduino_in', 'my message', function() {
+        //   console.log("Message is published from node.js");
+        //   //client.end(); // Close the connection when published
+        // });
     });
 
     return {
