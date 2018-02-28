@@ -617,10 +617,16 @@ a.bg-danger:hover {
 
 .breadcrumb {
 	border-radius: 0;
-	padding: 10px 15px;
+	padding: 10px 0px;
 	background: #e9ecf2;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 	margin: 0 ;
+}
+ol.breadcrumb li:first-child {
+    margin-top: -8px;
+}
+ol.breadcrumb li {
+    float: left;
 }
 
 h1.page-header {
