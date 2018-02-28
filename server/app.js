@@ -1,8 +1,7 @@
 var express = require('express'),    
     app     = express(),
     http    = require('http').Server(app),
-    engine  = require('ejs-locals'),
-    port    = process.env.PORT || 50000,
+    engine  = require('ejs-locals'),    
     path    = require('path'),
     net     = require('net'),
     io      = require('socket.io')(http);
