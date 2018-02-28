@@ -625,9 +625,6 @@ a.bg-danger:hover {
 ol.breadcrumb li:first-child {
     margin-top: -8px;
 }
-ol.breadcrumb li {
-    float: left;
-}
 
 h1.page-header {
 	margin-top: 30px;

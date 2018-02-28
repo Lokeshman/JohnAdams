@@ -9,8 +9,7 @@ var express = require('express'),
     // sys = require('sys'),
     bodyParser = require('body-parser');    
     
-    var port = process.env.PORT || 8080;
-
+    var port = process.env.PORT || 5000;
       
     app.set('fileinput', path.join(__dirname, '../data/input.txt')); 
     app.set('fileprocess', path.join(__dirname, '../data/process.txt')); 

@@ -1,22 +1,30 @@
 .light {
     background: url('/./light.jpg');
-    width: 113px;
-    height: 165px;
+    width: 100px;
+    height: 140px;
     display:block;
 }
 
 .light.on {
-    background-position: 113px 0px; 
+    background-position: 100px 0px; 
+    background-size: cover;    
+    width: 100px;
+    height: 140px;
 }
 
 .light.off{
      background-position: 0px 0px; 
+     background-size: cover;
+     background-repeat: no-repeat;
+     width: 100px;
+     height: 140px;
 }
 
 .connection {
     width: 85px;
     height: 85px;
     display:block; 
+    margin-top: 5px;
 }
 
 .connection.off {

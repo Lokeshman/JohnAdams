@@ -37,7 +37,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>                                                                                               
-                        <a class="navbar-brand" href="#"><span>Lokesh</span>Admin</a>     
+                        <a class="navbar-brand" href="#"><span>L</span>okesh</a>     
                         <a class="navbar-brand connection off" href="#"></a>                   
                         <ul class="user-menu">
                             <li class="dropdown pull-right">
@@ -58,16 +58,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--header-top end here-->
 
     <section>
-        <div class="container-fluid">
-                <div class="row">
-                        <div class="col-md-12">
-                        <ol class="breadcrumb">
-                            <!-- <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li> -->
-                            <li><a href="#"><span class="glyphicon connection off"></span></a></li>
-                            <li class="active">Dashboard</li>
-                        </ol>
-                    </div>
-                    </div><!--/.row-->
+
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <!-- <li><a href="#"><span class="glyphicon connection off"></span></a></li> -->
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </div>
+            </div><!--/.row-->
             <div class="row">
                 <div class="col-lg-3 col-xs-6">
                     <div class="panel panel-white">
@@ -79,13 +80,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-lg-6 col-xs-6">                                                                   
                                 <em class="glyphicon  glyphicon-king glyphicon-l"></em>                                                                    
                             </div>                                                            
-                            <div class="col-lg-12 col-xs-12 action-buttons btn-group">
+                            <div class="col-lg-12 col-xs-12 action-buttons btn-group">                                
                                 <div class="btn-group" id="status1" data-toggle="buttons">
-                                    <label class="btn btn-default btn-off btn-lg active">
+                                    <label class="btn btn-default btn-off btn-lg active" onclick="changestatusrelay('1','1')">
                                     <input type="radio" value="0" name="multifeatured_module[module_id][status1]">TẮT ĐÈN</label>
-                                    <label class="btn btn-default btn-on btn-lg">
+                                    <label class="btn btn-default btn-on btn-lg" onclick="changestatusrelay('1','0')">
                                     <input type="radio" value="1" name="multifeatured_module[module_id][status1]" checked="checked">BẬT ĐÈN</label>                                            
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                         <div class="panel-footer">                                                  
@@ -105,9 +106,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>                                                            
                             <div class="col-xs-12 action-buttons btn-group">
                                 <div class="btn-group" id="status2" data-toggle="buttons">
-                                    <label class="btn btn-default btn-off btn-lg active">
+                                    <label class="btn btn-default btn-off btn-lg active" onclick="changestatusrelay('2','1')">
                                     <input type="radio" value="0" name="multifeatured_module[module_id][status2]">TẮT ĐÈN</label>
-                                    <label class="btn btn-default btn-on btn-lg">
+                                    <label class="btn btn-default btn-on btn-lg" onclick="changestatusrelay('2','0')">
                                     <input type="radio" value="1" name="multifeatured_module[module_id][status2]" checked="checked">BẬT ĐÈN</label>                                             
                                 </div>
                             </div>
@@ -129,9 +130,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>                                                            
                             <div class="col-xs-12 action-buttons btn-group">
                                 <div class="btn-group" id="status3" data-toggle="buttons">
-                                    <label class="btn btn-default btn-off btn-lg active">
+                                    <label class="btn btn-default btn-off btn-lg active" onclick="changestatusrelay('3','1')">
                                     <input type="radio" value="0" name="multifeatured_module[module_id][status3]">TẮT ĐÈN</label>
-                                    <label class="btn btn-default btn-on btn-lg">
+                                    <label class="btn btn-default btn-on btn-lg" onclick="changestatusrelay('3','0')">
                                     <input type="radio" value="1" name="multifeatured_module[module_id][status3]" checked="checked">BẬT ĐÈN</label>                                              
                                 </div>
                             </div>
@@ -153,9 +154,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>                                                            
                             <div class="col-xs-12 action-buttons btn-group">
                                 <div class="btn-group" id="status4" data-toggle="buttons">
-                                    <label class="btn btn-default btn-off btn-lg active">
+                                    <label class="btn btn-default btn-off btn-lg active" onclick="changestatusrelay('4','1')">
                                     <input type="radio" value="0" name="multifeatured_module[module_id][status4]">TẮT ĐÈN</label>
-                                    <label class="btn btn-default btn-on btn-lg">
+                                    <label class="btn btn-default btn-on btn-lg" onclick="changestatusrelay('4','0')">
                                     <input type="radio" value="1" name="multifeatured_module[module_id][status4]" checked="checked">BẬT ĐÈN</label>                                            
                                 </div>
                             </div>
@@ -166,13 +167,182 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div><!-- ./col --> 
 
             </div><!--/.row-->            
-        </div>
+        </div>             
     </section>
    
     <footer id="footer" class="page-footer font-small blue pt-4 mt-4"><!--Footer-->
         <% include ../partials/footer.ejs %>
     </footer>    
 </body>
+<script type="text/javascript">
+    
+    function light_on(){
+        $('.light').removeClass('off');
+        $('.light').addClass('on');
+    }
+    function lamp1_on(){
+        $('#lamp1.light').removeClass('off');
+        $('#lamp1.light').addClass('on');
+    }
+    function lamp2_on(){
+        $('#lamp2.light').removeClass('off');
+        $('#lamp2.light').addClass('on');
+    }
+    function lamp3_on(){
+        $('#lamp3.light').removeClass('off');
+        $('#lamp3.light').addClass('on');
+    }
+
+    function light_off(){
+        $('.light').removeClass('on');
+        $('.light').addClass('off');
+    }
+    function lamp1_off(){
+        $('#lamp1.light').removeClass('on');
+        $('#lamp1.light').addClass('off');
+    }
+    function lamp2_off(){
+        $('#lamp2.light').removeClass('on');
+        $('#lamp2.light').addClass('off');
+    }
+    function lamp3_off(){
+        $('#lamp3.light').removeClass('on');
+        $('#lamp3.light').addClass('off');
+    }
+
+    function connection_on(){
+        $('.connection').removeClass('off');
+        $('.connection').addClass('on');
+    }
+
+    function connection_off(){
+        $('.connection').removeClass('off');
+        $('.connection').addClass('off');
+    }
+    // var socket = io.connect('https://protected-everglades-87452.herokuapp.com/');
+    var connectSocketUrl = "<%process.env.CLOUDMQTT_URL%>";
+    var socket = io.connect(connectSocketUrl || 'https://loinguyen-room-nhs.herokuapp.com/');
+    socket.on('connect', function () {
+        socket.on('mqtt', function (msg) {
+            console.log(msg);
+            console.log(connectSocketUrl);
+            console.log(msg.type);
+            if(msg.type == '9'){
+                
+                if(msg.type == '3' && msg.payload == '1'){
+                    light_on();
+                }
+                else{
+                    light_off();
+                }
+                connection_on();
+            }
+
+            if(msg.payload == '1'){
+                switch (msg.type) {
+                    case '1':
+                        lamp1_on();
+                        break;
+                    case '2':
+                        lamp2_on();
+                        break;
+                    case '3':
+                        lamp3_on();
+                        break;                          
+                }
+            }
+            else{
+                switch (msg.type) {
+                    case '1':
+                        lamp1_off();
+                        break;
+                    case '2':
+                        lamp2_off();
+                        break;
+                    case '3':
+                        lamp3_off();
+                        break;                          
+                }
+            }                    
+                
+        });
+
+        socket.emit('subscribe',{topic:'/sensor/OTGW/returntemp'});
+    });
+
+    function changestatusrelay(pinno, value){
+            var url = '/on';
+        if(value == '1'){
+            url = '/off';
+        }
+        var data = {};
+        data.pinno = pinno;
+        data.value = value;
+        postdata(url,data);
+    }
+    
+    function checkstatus(){
+        var url = '/status';
+        getdata(url,{});
+    }
+
+    function postdata(url, data){
+        console.log('URL'+url);
+            $.ajax({
+            type: 'POST',
+            dataType: "json",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            cache: false,
+            url: url,						
+            success: function(data) {
+                console.log('success');
+                console.log(JSON.stringify(data));
+            }
+        });
+    }
+
+    function getdata(url, data){
+            $.ajax({
+            type: 'GET',
+            dataType: "json",
+            data: data,
+            contentType: "application/json",
+            cache: false,
+            url: url,						
+            success: function(data) {
+                console.log('success');
+                console.log(JSON.stringify(data));
+            }
+        });
+    }
+
+    function checksubmitsetting(){
+        var ontime = $('#ontime').val();
+        var offtime = $('#offtime').val();
+        var typeofftime = $('#typeofftime').val();
+        var relaynumber = $('#relaynumber').val();
+        
+        if(!ontime || !offtime || !relaynumber){
+            alert('Please input all fields');
+        }
+        else{
+            $('#frmsubmit').submit();
+        }
+    }
+
+    $(document).ready(function () {
+        
+        var typeofftime = "<%=setting.typeofftime %>";
+        $('#typeofftime').val(typeofftime);
+
+        var delayInMilliseconds = 1000; //1 second
+        setTimeout(function() {
+            checkstatus();
+        }, delayInMilliseconds);
+        
+    });
+</script>  
 </html>
 
       	 

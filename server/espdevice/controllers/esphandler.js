@@ -59,7 +59,13 @@ module.exports = function (app) {
     });
 
     return {
-
+        statusConnection: function(req, res){
+            client.publish('esp8266_arduino_in', '9', function() {
+              console.log("Message is published from node.js");
+              //client.end(); // Close the connection when published
+              //response.send({message:'Message published'});
+            });
+        },
         ctrl00: function(request, response) {
             console.log(fileinput);  
                
@@ -81,6 +87,26 @@ module.exports = function (app) {
                     setting: datainput
                 }); 
             });               
+        },
+        onLamp: function(req, res){
+            console.log(req.body);
+            var messageSend = req.body.pinno + ";" + req.body.value;
+            client.publish('esp8266_arduino_in', messageSend, function() {
+                console.log("ON:Message is published from node.js");
+                console.log(messageSend);
+                //client.end(); // Close the connection when published
+                res.redirect('/home');
+            });
+        },
+        offLamp: function(req, res){
+            console.log(req.body);    
+            var messageSend = req.body.pinno + ";" + req.body.value;
+            client.publish('esp8266_arduino_in', messageSend, function() {
+                console.log("OFF:Message is published from node.js");
+                console.log(messageSend);
+                //client.end(); // Close the connection when published
+                res.redirect('/home');
+          });
         }
     }
 }
