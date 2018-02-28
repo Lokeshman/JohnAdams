@@ -9,7 +9,9 @@ var express = require('express'),
     // sys = require('sys'),
     bodyParser = require('body-parser');    
     
-    app.set('port', (process.env.PORT || 5000));    
+    var port = process.env.PORT || 8080;
+
+      
     app.set('fileinput', path.join(__dirname, '../data/input.txt')); 
     app.set('fileprocess', path.join(__dirname, '../data/process.txt')); 
 
@@ -53,7 +55,7 @@ var express = require('express'),
 
         app.use('/', require('./espdevice')(app));
 
-        http.listen(app.get('port'), function() {
-            console.log('Node app is running on port', app.get('port'));
+        http.listen(port, function() {
+            console.log('Node app is running on port', port);
         });
     }
