@@ -1,5 +1,4 @@
-var express = require('express'),
-    env     = require('../env'),
+var express = require('express'),    
     app     = express(),
     http    = require('http').Server(app),
     engine  = require('ejs-locals'),
